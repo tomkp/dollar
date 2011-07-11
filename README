@@ -1,0 +1,26 @@
+
+
+
+
+
+    dom(window).on("load", function() {
+
+        dom(find(".myclass"))
+                .hide()
+                .show()
+                .css({
+                    color:"red"
+                })
+                .html("Q")
+                .on("click", function(x) {
+                    dom(this).css({
+                        backgroundColor: "green"
+                    });
+                });
+
+        dom(find("#myid"))
+                .on("click", function(x) {
+                    //dom(this).hide();
+                    dom(this).opacity(.5);
+                });
+    });
