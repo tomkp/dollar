@@ -54,11 +54,11 @@ var dom = function(elements) {
     };
 
     var opacity = function(opacity) {
-            opacity = (opacity >= 1) ? 0.999 : opacity;
-            each(elements, function(element) {
-                element.style.opacity = opacity; // Safari 1.2, newer Firefox and Mozilla, CSS3
-                element.style.filter = "alpha(opacity:" + opacity * 100 + ")"; // IE/Win
-            });
+        opacity = (opacity >= 1) ? 0.999 : opacity;
+        each(elements, function(element) {
+            element.style.opacity = opacity; // Safari 1.2, newer Firefox and Mozilla, CSS3
+            element.style.filter = "alpha(opacity:" + opacity * 100 + ")"; // IE/Win
+        });
         return this;
     };
 
@@ -76,6 +76,14 @@ var dom = function(elements) {
         return this;
     };
 
+    var ready = function(fn) {
+        each(elements, function(element) {
+            if (element.readyState == 'complete' || element.readyState == 'loaded') fn();
+            element.addEventListener('DOMContentLoaded', fn, false);
+        });
+        return this;
+    };
+
 
     return {
         hide: hide,
@@ -84,7 +92,8 @@ var dom = function(elements) {
         css: css,
         opacity: opacity,
         html: html,
-        on: on
+        on: on,
+        ready: ready
     }
 
 };

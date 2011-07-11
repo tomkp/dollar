@@ -3,7 +3,7 @@
 
 
 
-    dom(window).on("load", function() {
+    dom(document).ready(function() {
 
         dom(find(".myclass"))
                 .hide()
