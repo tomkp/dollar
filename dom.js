@@ -92,6 +92,7 @@ var dom = function(elements) {
         css: css,
         opacity: opacity,
         html: html,
+        on: on,
         ready: ready
     };
 
