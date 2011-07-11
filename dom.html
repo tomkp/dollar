@@ -11,34 +11,34 @@
 
     </style>
 
-    <script src="../select/select.js"></script>
     <script src="dom.js"></script>
 
     <script>
 
         dom(document).ready(function() {
 
-            dom(select(".myclass"))
+            var element = document.getElementById("myid");
+
+            dom(element)
                     .hide()
                     .show()
                     .css({
                         color:"red"
                     })
                     .html("Q")
-                    .click(function(x) {
+                    .click(function() {
                         dom(this).css({
                             backgroundColor: "green"
                         });
-                    });
-
-            dom(select("#myid"))
-                    .mouseover(function(x) {
+                    })
+                    .mouseover(function() {
                         dom(this).opacity(.5);
                     })
-                    .mouseout(function(x) {
+                    .mouseout(function() {
                         dom(this).opacity(1);
                     })
                     ;
+
         });
 
 
@@ -49,10 +49,7 @@
 
 
 <div id="myid">x</div>
-<div class="myclass">a</div>
-<div class="myclass">b</div>
-<div class="myclass">c</div>
-<div class="myclass">d</div>
+
 
 </body>
 </html>
