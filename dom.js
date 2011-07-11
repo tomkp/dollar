@@ -85,7 +85,7 @@ var dom = function(elements) {
     };
 
 
-    return {
+    var functions = {
         hide: hide,
         show: show,
         toggle: toggle,
@@ -94,6 +94,18 @@ var dom = function(elements) {
         html: html,
         on: on,
         ready: ready
-    }
+    };
 
+    var events = [
+        "click", "dblclick", "contextmenu", "blur", "hover", "mouseover", "mouseout", "mousedown", "mouseup", "mousemove", "mousewheel", "keydown", "keyup", "keypress", "cut", "copy", "paste", "change", "focus", "scroll", "reset", "select", "submit", "resize"
+    ];
+
+    each(events, function(event) {
+        functions[event] = function(fn) {
+            on(event, fn);
+            return this;
+        }
+    });
+
+    return functions;
 };

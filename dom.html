@@ -11,34 +11,34 @@
 
     </style>
 
-    <script src="../func/arrays.js"></script>
-    <script src="../find/find.js"></script>
+    <script src="../select/select.js"></script>
     <script src="dom.js"></script>
 
     <script>
 
         dom(document).ready(function() {
 
-            console.info("loaded");
-
-            dom(find(".myclass"))
+            dom(select(".myclass"))
                     .hide()
                     .show()
                     .css({
                         color:"red"
                     })
                     .html("Q")
-                    .on("click", function(x) {
+                    .click(function(x) {
                         dom(this).css({
                             backgroundColor: "green"
                         });
                     });
 
-            dom(find("#myid"))
-                    .on("click", function(x) {
-                        //dom(this).hide();
+            dom(select("#myid"))
+                    .mouseover(function(x) {
                         dom(this).opacity(.5);
-                    });
+                    })
+                    .mouseout(function(x) {
+                        dom(this).opacity(1);
+                    })
+                    ;
         });
 
 
