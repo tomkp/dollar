@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+
+    <style>
+
+        body {
+            font-size: 32px;
+        }
+
+    </style>
+
+    <script src="../func/arrays.js"></script>
+    <script src="../find/find.js"></script>
+    <script src="dom.js"></script>
+
+    <script>
+
+        dom(window).on("load", function() {
+
+            console.info("loaded");
+
+            dom(find(".myclass"))
+                    .hide()
+                    .show()
+                    .css({
+                        color:"red"
+                    })
+                    .html("Q")
+                    .on("click", function(x) {
+                        dom(this).css({
+                            backgroundColor: "green"
+                        });
+                    });
+
+            dom(find("#myid"))
+                    .on("click", function(x) {
+                        //dom(this).hide();
+                        dom(this).opacity(.5);
+                    });
+        });
+
+
+    </script>
+
+</head>
+<body>
+
+
+<div id="myid">x</div>
+<div class="myclass">a</div>
+<div class="myclass">b</div>
+<div class="myclass">c</div>
+<div class="myclass">d</div>
+
+</body>
+</html>
