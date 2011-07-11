@@ -20,7 +20,6 @@
 
         dom(find("#myid"))
                 .on("click", function(x) {
-                    //dom(this).hide();
                     dom(this).opacity(.5);
                 });
     });
