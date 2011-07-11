@@ -1,6 +1,16 @@
 
 
 
+    *   hide
+    *   show
+    *   toggle
+    *   css
+    *   opacity
+    *   html
+    *   on
+    *   ready
+
+
 
 
     dom(document).ready(function() {
