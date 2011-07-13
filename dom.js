@@ -2,14 +2,39 @@ var dom = function(elements) {
 
     elements = [].concat(elements) || [];
 
-    var each = function(array, fn) {
-        for (var i = 0, len = array.length; i < len; ++i) {
-            fn.call(this, array[i]);
-        }
-        return this;
-    };
 
-    var listen = function(element, type, fn) {
+    var i,
+        len,
+        prop,
+        each,
+        listen,
+        hide,
+        show,
+        toggle,
+        css,
+        opacity,
+        html,
+        on,
+        ready,
+        functions,
+        events
+        ;
+
+    if (Array.prototype.forEach) {
+        each = function(array, fn) {
+            array.forEach(fn, array);
+            return this;
+        }
+    } else {
+        each = function(array, fn) {
+            for (i = 0,len = array.length; i < len; ++i) {
+                fn.call(this, array[i]);
+            }
+            return this;
+        };
+    }
+
+    listen = function(element, type, fn) {
         if (element.addEventListener) {
             element.addEventListener(type, fn, false);
         } else if (element.attachEvent) {
@@ -22,21 +47,21 @@ var dom = function(elements) {
         return this;
     };
 
-    var hide = function() {
+    hide = function() {
         each(elements, function(element) {
             element.style.display = 'none';
         });
         return this;
     };
 
-    var show = function() {
+    show = function() {
         each(elements, function(element) {
             element.style.display = '';
         });
         return this;
     };
 
-    var toggle = function() {
+    toggle = function() {
         each(elements, function(element) {
             if (element.style.display != 'none') element.style.display = 'none';
             else element.style.display = '';
@@ -44,16 +69,16 @@ var dom = function(elements) {
         return this;
     };
 
-    var css = function(data) {
+    css = function(data) {
         each(elements, function(element) {
-            for (var prop in data) {
+            for (prop in data) {
                 element.style[prop] = data[prop];
             }
         });
         return this;
     };
 
-    var opacity = function(opacity) {
+    opacity = function(opacity) {
         opacity = (opacity >= 1) ? 0.999 : opacity;
         each(elements, function(element) {
             element.style.opacity = opacity; // Safari 1.2, newer Firefox and Mozilla, CSS3
@@ -62,21 +87,21 @@ var dom = function(elements) {
         return this;
     };
 
-    var html = function(html) {
+    html = function(html) {
         each(elements, function(element) {
             element.innerHTML = html;
         });
         return this;
     };
 
-    var on = function(type, fn) {
+    on = function(type, fn) {
         each(elements, function(element) {
             listen(element, type, fn);
         });
         return this;
     };
 
-    var ready = function(fn) {
+    ready = function(fn) {
         each(elements, function(element) {
             if (element.readyState == 'complete' || element.readyState == 'loaded') fn();
             element.addEventListener('DOMContentLoaded', fn, false);
@@ -85,7 +110,7 @@ var dom = function(elements) {
     };
 
 
-    var functions = {
+    functions = {
         hide: hide,
         show: show,
         toggle: toggle,
@@ -96,7 +121,7 @@ var dom = function(elements) {
         ready: ready
     };
 
-    var events = [
+    events = [
         "click", "dblclick", "contextmenu", "blur", "hover", "mouseover", "mouseout", "mousedown", "mouseup", "mousemove", "mousewheel", "keydown", "keyup", "keypress", "cut", "copy", "paste", "change", "focus", "scroll", "reset", "select", "submit", "resize"
     ];
 
