@@ -1,4 +1,7 @@
-var dom = function(elements) {
+
+
+
+var $ = function(elements) {
 
     elements = [].concat(elements) || [];
 
@@ -72,7 +75,9 @@ var dom = function(elements) {
     css = function(data) {
         each(elements, function(element) {
             for (prop in data) {
-                element.style[prop] = data[prop];
+                if (data.hasOwnProperty(prop)) {
+                    element.style[prop] = data[prop];
+                }
             }
         });
         return this;

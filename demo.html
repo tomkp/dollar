@@ -15,29 +15,36 @@
 
     <script>
 
-        dom(document).ready(function() {
+        $(document).ready(function () {
 
-            var element = document.getElementById("myid");
 
-            dom(element)
-                    .hide()
-                    .show()
-                    .css({
-                        color:"red"
-                    })
-                    .html("Q")
-                    .click(function() {
-                        dom(this).css({
-                            backgroundColor: "green"
-                        });
-                    })
-                    .mouseover(function() {
-                        dom(this).opacity(.5);
-                    })
-                    .mouseout(function() {
-                        dom(this).opacity(1);
-                    })
-                    ;
+            var a = document.getElementById('a');
+            $(a).hide();
+
+
+            var b = document.getElementById('b');
+            $(b).css({
+                color: 'red'
+            });
+
+
+            var c = document.getElementById('c');
+            $(c).html("d")
+                .mouseover(function () {
+                    $(this).opacity(.5);
+                })
+                .mouseout(function () {
+                    $(this).opacity(1);
+                })
+            ;
+
+
+            var d = document.getElementById('d');
+            $(d).click(function () {
+                $(this).css({
+                    backgroundColor: 'yellow'
+                });
+            })
 
         });
 
@@ -47,8 +54,12 @@
 </head>
 <body>
 
-
-<div id="myid">x</div>
+<ul>
+    <li id="a">A</li>
+    <li id="b">B</li>
+    <li id="c">C</li>
+    <li id="d">D</li>
+</ul>
 
 
 </body>
