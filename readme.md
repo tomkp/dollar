@@ -46,20 +46,32 @@
 
 
 ```
-    dom(document).ready(function() {
+    $(document).ready(function () {
 
-        var element = document.getElementById("header");
 
-        dom(element)
-                .css({
-                    color:"red"
-                })
-                .html("Q")
-                .click(function() {
-                    dom(this).css({
-                        backgroundColor: "green"
-                    });
-                });
+        $(document.getElementById('a')).hide();
+
+
+        $(document.getElementById('b')).css({
+            color: 'red'
+        });
+
+
+        $(document.getElementById('c')).html("d")
+           .mouseover(function () {
+               $(this).opacity(.5);
+           })
+           .mouseout(function () {
+               $(this).opacity(1);
+           });
+
+
+        $(document.getElementById('d')).click(function () {
+           $(this).css({
+               backgroundColor: 'yellow'
+           });
+        })
+
     });
 
 ```

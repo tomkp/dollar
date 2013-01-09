@@ -18,18 +18,15 @@
         $(document).ready(function () {
 
 
-            var a = document.getElementById('a');
-            $(a).hide();
+            $(document.getElementById('a')).hide();
 
 
-            var b = document.getElementById('b');
-            $(b).css({
+            $(document.getElementById('b')).css({
                 color: 'red'
             });
 
 
-            var c = document.getElementById('c');
-            $(c).html("d")
+            $(document.getElementById('c')).html("d")
                 .mouseover(function () {
                     $(this).opacity(.5);
                 })
@@ -39,8 +36,7 @@
             ;
 
 
-            var d = document.getElementById('d');
-            $(d).click(function () {
+            $(document.getElementById('d')).click(function () {
                 $(this).css({
                     backgroundColor: 'yellow'
                 });
